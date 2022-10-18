@@ -1,0 +1,7 @@
+*.html
+
+.DS_store/
+
+node_modules/
+
+.env
