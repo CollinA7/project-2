@@ -13,8 +13,11 @@ Order.init(
             autoIncrement: true,
         },
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.CHAR,
             allowNull: false,
+            validate: {
+                len: [1],
+            },
         },
         customer_id: {
             type: DataTypes.INTEGER,

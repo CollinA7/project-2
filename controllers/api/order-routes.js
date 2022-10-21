@@ -18,6 +18,8 @@ router.post('/', withAuth, (req, res) => {
     Order.create({
         order_id: req.body.order_id,
         order_name: req.body.order_name,
+        customer_id: req.body.customer_id,
+        user_id: req.session.user_id,
     })
         .then((dbOrderData) => res.json(dbOrderData))
         .catch((err) => {
