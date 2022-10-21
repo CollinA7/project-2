@@ -1,18 +1,22 @@
 const router = require('express').Router()
-const { Customer } = require('../../models')
+const { Customer, Order } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 router.get('/', withAuth, (req, res) => {
     Customer.findAll({
-        attributes: ['id', 'customer_name', 'customer_phone'],
+        attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
         include: [
+            {
+                model: Order,
+                attributes: ['order_id', 'order_name', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username'],
+                },
+            },
             {
                 model: User,
                 attributes: ['username'],
-                include: {
-                    model: Order,
-                    attributes: ['id'],
-                },
             },
         ],
     })
@@ -28,8 +32,8 @@ router.post('/', withAuth, (req, res) => {
     Customer.create({
         customer_name: req.body.customer_name,
         order_id: req.body.order_id,
+        order_name: req.body.order_name,
         customer_phone: req.body.customer_phone,
-        user_username: req.session.user_username,
     })
         .then((dbCustomerData) => res.json(dbCustomerData))
         .catch((err) => {

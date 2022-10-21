@@ -5,7 +5,7 @@ async function customerFormHandler(event) {
     const customer_phone = document.querySelector('#stacked-phone').value.trim()
     const order_id = document.querySelector('#stacked-order').value.trim()
 
-    if (customer_name && customer_phone & order_id) {
+    if (customer_name && customer_phone && order_id) {
         const response = await fetch('/api/customers', {
             method: 'POST',
             body: JSON.stringify({
@@ -17,7 +17,7 @@ async function customerFormHandler(event) {
         })
 
         if (response.ok) {
-            document.location.replace('/order/')
+            document.location.replace('/dashboard')
         } else {
             alert(response.statusText)
         }
@@ -25,5 +25,5 @@ async function customerFormHandler(event) {
 }
 
 document
-    .querySelector('.pure-form pure-form-stacked')
+    .querySelector('.pure-form')
     .addEventListener('submit', customerFormHandler)
