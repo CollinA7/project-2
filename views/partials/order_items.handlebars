@@ -1,5 +1,7 @@
 <ul class='pure-menu-list'>
     <li class='pure-menu-item'>
-        <a href='#' class='pure-menu-link'>{{order_items}}</a>
+        <h4><a class='link' href='/customer/{{id}}'>{{customer_name}}</a></h4>
+        <p>{{customer_phone}}</p>
+        <p>Posted by {{user.username}} on {{format_date created_at}}</p>
     </li>
 </ul>
