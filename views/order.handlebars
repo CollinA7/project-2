@@ -8,16 +8,12 @@
             <form class="pure-form pure-form-stacked">
         <fieldset>
         <label for="name">Name</label>
-        <input type="name" id="order-name" placeholder="Name" />
+        <input type="name" id="order-name" value={{customer_name}}/>
         <label for="stacked-phone">Phone Number</label>
-        <input type="text" id="stacked-phone" placeholder="Phone-Number" />
+        <input type="text" id="stacked-phone" value={{customer_phone}} />
         <label for="stacked-order">Order Number</label>
-        <select id="stacked-order">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-        </select>
+        <input type="text" id="stacked-order" value={{order_id}}>
+           
         <button type="submit" class="pure-button pure-button-primary">Submit Order</button>
     </fieldset>
 </form>

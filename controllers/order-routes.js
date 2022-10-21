@@ -3,33 +3,24 @@ const sequelize = require('../config/connection')
 const { Order, User, Customer } = require('../models')
 const withAuth = require('../utils/auth')
 
-// get all posts for dashboard
+// get all posts for order handlebar
 router.get('/', withAuth, (req, res) => {
-    console.log(req.session)
-    console.log('======================')
-    Post.findAll({
-        where: {
-            username: req.session.username,
-        },
-        attributes: ['id', 'created_at'],
+    Customer.findAll({
+        attributes: ['id', 'customer_name', 'customer_phone'],
         include: [
             {
                 model: User,
-                attributes: ['id', 'created_at'],
+                attributes: ['username'],
                 include: {
                     model: Order,
                     attributes: ['id'],
                 },
             },
-            {
-                model: Customer,
-                attributes: ['name', 'phone'],
-            },
         ],
     })
         .then((dbPostData) => {
             const posts = dbPostData.map((post) => post.get({ plain: true }))
-            res.render('dashboard', { posts, loggedIn: true })
+            res.render('order', { posts, loggedIn: true })
         })
         .catch((err) => {
             console.log(err)

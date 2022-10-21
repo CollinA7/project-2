@@ -25,6 +25,10 @@ Customer.init(
                 model: 'order',
                 key: 'id',
             },
+            username: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
         },
     },
     {
