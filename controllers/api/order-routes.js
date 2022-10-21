@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Order } = require('../../models')
+const withAuth = require('../../utils/auth')
 
 // CREATE new order
 router.get('/', (req, res) => {

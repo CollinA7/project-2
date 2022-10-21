@@ -23,10 +23,10 @@ router.get('/', withAuth, (req, res) => {
         ],
     })
         .then((dbCustomerData) => {
-            const customers = dbCustomerData.map((post) =>
+            const posts = dbCustomerData.map((post) =>
                 post.get({ plain: true })
             )
-            res.render('dashboard', { customers, loggedIn: true })
+            res.render('dashboard', { posts, loggedIn: true })
         })
         .catch((err) => {
             console.log(err)
