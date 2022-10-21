@@ -29,7 +29,7 @@ router.post('/', withAuth, (req, res) => {
         customer_name: req.body.customer_name,
         order_id: req.body.order_id,
         customer_phone: req.body.customer_phone,
-        user_id: req.session.user_id,
+        user_username: req.session.user_username,
     })
         .then((dbCustomerData) => res.json(dbCustomerData))
         .catch((err) => {

@@ -1,15 +1,17 @@
 async function customerFormHandler(event) {
     event.preventDefault()
 
-    const name = document.querySelector('#order_name').value.trim()
-    const phone = document.querySelector('#password-login').value.trim()
+    const name = document.querySelector('#customer_name').value.trim()
+    const phone = document.querySelector('#customer_phone').value.trim()
+    const order = document.querySelector('#order_id').value.trim()
 
-    if (name && phone) {
+    if (name && phone & order) {
         const response = await fetch('/api/customer', {
             method: 'post',
             body: JSON.stringify({
                 name,
                 phone,
+                order,
             }),
             headers: { 'Content-Type': 'application/json' },
         })
