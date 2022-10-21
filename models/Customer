@@ -19,13 +19,6 @@ Customer.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        order_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'order',
-                key: 'order_id',
-            },
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
