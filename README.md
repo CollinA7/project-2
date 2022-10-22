@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Niche - Project 2
 
 ## Description
@@ -9,7 +8,7 @@
 [GitHub](*)
 
 ## Link to Deployed Heroku App
-[Heroku](*)
+[Heroku](https://calm-shelf-09301.herokuapp.com/)
 
 ## Installation
 
@@ -30,9 +29,3 @@ Made with ♥ by Collin, Racquel, Tom, & Trae
 
 ## Questions?
 
-=======
-# project-2
-
-## Here is a link to the deployed application
-https://calm-shelf-09301.herokuapp.com/
->>>>>>> develop
