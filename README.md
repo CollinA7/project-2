@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Niche - Project 2
 
 ## Description
@@ -29,3 +30,9 @@ Made with ♥ by Collin, Racquel, Tom, & Trae
 
 ## Questions?
 
+=======
+# project-2
+
+## Here is a link to the deployed application
+https://calm-shelf-09301.herokuapp.com/
+>>>>>>> develop
