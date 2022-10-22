@@ -5,7 +5,7 @@
 ## User Story
 
 ## Link to GitHub Repository
-[GitHub](*)
+[GitHub](https://github.com/CollinA7/project-2)
 
 ## Link to Deployed Heroku App
 [Heroku](https://calm-shelf-09301.herokuapp.com/)
