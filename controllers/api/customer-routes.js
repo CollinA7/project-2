@@ -10,7 +10,7 @@ router.get('/', withAuth, (req, res) => {
                 model: Order,
                 attributes: [
                     'id',
-                    'order_name',
+                    'name',
                     'customer_id',
                     'user_id',
                     'created_at',
