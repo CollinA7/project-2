@@ -1,4 +1,5 @@
-const router = require('express').Router()
+// eslint-disable-next-line new-cap
+const router = require('express').Router();
 
 const userRoutes = require('./user-routes')
 const customerRoutes = require('./customer-routes')
@@ -8,4 +9,4 @@ router.use('/users', userRoutes)
 router.use('/customers', customerRoutes)
 router.use('/orders', orderRoutes)
 
-module.exports = router
+module.exports = router;

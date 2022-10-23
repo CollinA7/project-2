@@ -13,9 +13,7 @@ Order.init(
         },
         name: {
             type: DataTypes.STRING,
-            validate: {
-                len: [1],
-            },
+            allowNull: false,
         },
         customer_id: {
             type: DataTypes.INTEGER,

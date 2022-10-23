@@ -1,6 +1,6 @@
+const Order = require('./Order')
 const Customer = require('./Customer')
 const User = require('./User')
-const Order = require('./Order')
 
 User.hasMany(Customer, {
     foreignKey: 'user_id',
@@ -8,8 +8,14 @@ User.hasMany(Customer, {
 
 User.belongsToMany(Customer, {
     through: Order,
-    as: 'order_post',
+    as: 'order_id',
     foreignKey: 'user_id',
+})
+
+Customer.belongsToMany(User, {
+    through: Order,
+    as: 'order_id',
+    foreignKey: 'customer_id',
 })
 
 Customer.belongsTo(User, {
@@ -17,6 +23,10 @@ Customer.belongsTo(User, {
 })
 
 User.hasMany(Order, { foreignKey: 'user_id' })
+
+Customer.hasOne(Order, {
+    foreignKey: 'customer_id',
+})
 
 Order.belongsTo(User, { foreignKey: 'user_id' })
 

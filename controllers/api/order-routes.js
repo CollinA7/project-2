@@ -1,10 +1,8 @@
 const router = require('express').Router()
-const { Order } = require('../../models')
+const { Order, Customer } = require('../../models')
 const withAuth = require('../../utils/auth')
 
-// CREATE new order
 router.get('/', (req, res) => {
-    //get all orders
     Order.findAll()
         .then((dbOrderData) => res.json(dbOrderData))
         .catch((err) => {
@@ -14,7 +12,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', withAuth, (req, res) => {
-    //create a order on a post
+    //create a order on a post//
     Order.create({
         order_id: req.body.order_id,
         order_name: req.body.order_name,
