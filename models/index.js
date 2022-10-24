@@ -32,4 +32,12 @@ Order.belongsTo(User, { foreignKey: 'user_id' })
 
 Order.belongsTo(Customer, { foreignKey: 'customer_id' })
 
+// Order.belongsTo(Customer, {
+//     foreignKey: 'order_id'
+// })
+ 
+// Customer.hasMany(Order, {
+//     foreignKey: 'order_id'
+// })
+
 module.exports = { User, Order, Customer }
