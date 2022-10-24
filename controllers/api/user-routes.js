@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
             {
                 model: Customer,
                 attributes: [
-                    'customer_id',
+                    'id',
                     'customer_name',
                     'customer_phone',
                     'created_at',
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Order,
-                attributes: ['order_id', 'order_name', 'user_id', 'created_at'],
+                attributes: ['id', 'name'],
             },
         ],
     })
@@ -54,7 +54,6 @@ router.post('/', async (req, res) => {
     try {
         const dbUserData = await User.create({
             username: req.body.username,
-            email: req.body.email,
             password: req.body.password,
         })
 

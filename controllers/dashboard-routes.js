@@ -10,13 +10,7 @@ router.get('/', withAuth, (req, res) => {
         include: [
             {
                 model: Order,
-                attributes: [
-                    'id',
-                    'order_name',
-                    'customer_id',
-                    'user_id',
-                    'created_at',
-                ],
+                attributes: ['order_id', 'name'],
                 include: {
                     model: User,
                     attributes: ['username'],

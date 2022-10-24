@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Order, Customer } = require('../../models')
+const { Order } = require('../../models')
 const withAuth = require('../../utils/auth')
 
 router.get('/', (req, res) => {
@@ -15,8 +15,7 @@ router.post('/', withAuth, (req, res) => {
     //create a order on a post//
     Order.create({
         order_id: req.body.order_id,
-        order_name: req.body.order_name,
-        customer_id: req.body.customer_id,
+        name: req.body.name,
         user_id: req.session.user_id,
     })
         .then((dbOrderData) => res.json(dbOrderData))
