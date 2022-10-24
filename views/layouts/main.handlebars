@@ -17,9 +17,12 @@
 
         <ul class="pure-menu-list">
             <li class="pure-menu-item pure-menu-selected"><a href="/" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Tour</a></li>
-            <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
+            {{#if loggedIn}}
+            <li class="pure-menu-item pure-item-link"><a href="/orders" class="pure-menu-link">Orders</a></li>
             <li class="pure-menu-item"><button class="pure-menu-link" id="logout">Logout</button></li>
+            {{else}}
+            <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
+            {{/if}}
         </ul>
     </div>
 </div>
@@ -27,7 +30,6 @@
             {{{body}}}
         </main>
         <footer>
-
 
         </footer>
     <script src="./js/logout.js"></script>

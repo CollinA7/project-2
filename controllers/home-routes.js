@@ -7,9 +7,15 @@ const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
-  res.render('homepage', {
-    
+
+  try {
+    res.render('homepage', {
+    loggedIn: req.session.loggedIn
   });
+  } catch {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 router.get('/login', (req,res) => {
