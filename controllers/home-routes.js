@@ -4,7 +4,7 @@ const router = require('express').Router();
 const sequelize = require('sequelize');
 // eslint-disable-next-line object-curly-spacing
 const { User } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/helpers');
 
 router.get('/', withAuth, (req, res) => {
 
