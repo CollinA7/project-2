@@ -1,11 +1,6 @@
 const router = require('express').Router()
-<<<<<<< HEAD
-const { Order, Customer } = require('../../models')
 const withAuth = require('../../utils/helpers')
-=======
 const { Order } = require('../../models')
-const withAuth = require('../../utils/auth')
->>>>>>> racquel
 
 router.get('/', (req, res) => {
     Order.findAll()
