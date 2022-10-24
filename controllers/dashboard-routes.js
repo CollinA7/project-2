@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const sequelize = require('../config/connection')
 const { Order, User, Customer } = require('../models')
-const withAuth = require('../utils/auth')
+const withAuth = require('../utils/helpers')
 
 // get all posts for order handlebar
 router.get('/', withAuth, (req, res) => {

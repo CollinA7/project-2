@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const { Order, Customer } = require('../../models')
-const withAuth = require('../../utils/auth')
+const withAuth = require('../../utils/helpers')
 
 router.get('/', (req, res) => {
     Order.findAll()
