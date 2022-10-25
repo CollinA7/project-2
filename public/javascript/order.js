@@ -1,17 +1,18 @@
-async function orderFormHandler(event) {
+async function commentFormHandler(event) {
     event.preventDefault()
 
-    const order_id = document
-        .querySelector('input[name="order_id"]')
+    const name = document
+        .querySelector('textarea[name="comment-body"]')
         .value.trim()
+    const customer_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ]
 
-    const name = document.querySelector('input[name="name"]').value.trim()
-
-    const response = await fetch(`/api/orders`, {
+    const response = await fetch('/api/orders', {
         method: 'POST',
         body: JSON.stringify({
+            customer_id,
             name,
-            order_id,
         }),
         headers: {
             'Content-Type': 'application/json',
@@ -19,12 +20,12 @@ async function orderFormHandler(event) {
     })
 
     if (response.ok) {
-        document.location.replace('/dashboard')
+        document.location.reload()
     } else {
         alert(response.statusText)
     }
 }
 
 document
-    .querySelector('.pure-form pure-form-stacked')
-    .addEventListener('submit', orderFormHandler)
+    .querySelector('.comment-form')
+    .addEventListener('submit', commentFormHandler)
