@@ -6,7 +6,7 @@ const sequelize = require('sequelize');
 const { User } = require('../models');
 const withAuth = require('../utils/helpers');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
 
   try {
     res.render('homepage', {
