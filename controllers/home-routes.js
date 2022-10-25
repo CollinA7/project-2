@@ -28,7 +28,14 @@ router.get('/login', (req,res) => {
 });
 
 router.get('/dashboard', (req, res) => {
-  res.render('dashboard')
+  try {
+    res.render('dashboard', {
+    loggedIn: req.session.loggedIn
+  })
+  } catch {
+    console.log(err)
+    req.status(404).json(err)
+  }
 })
 
 module.exports = router;
