@@ -25,5 +25,5 @@ async function customerFormHandler(event) {
 }
 
 document
-    .querySelector('.pure-form')
+    .querySelector('.pure-form pure-form-stacked')
     .addEventListener('submit', customerFormHandler)

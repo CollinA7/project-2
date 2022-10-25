@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
             },
             {
                 model: Order,
-                attributes: ['id', 'name'],
+                attributes: ['order_id', 'name'],
             },
         ],
     })
@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
     try {
         const dbUserData = await User.findOne({
             where: {
-                email: req.body.email,
+                username: req.body.username,
             },
         })
 
