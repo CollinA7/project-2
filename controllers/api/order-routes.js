@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { Order } = require('../../models')
 const withAuth = require('../../utils/helpers')
 const { Order } = require('../../models')
 
