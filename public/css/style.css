@@ -1,11 +1,10 @@
-
 /* order.handlebar page  */
 * -- Layout Styles -- */ .l-content {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .l-box {
-    padding: 0.5em 2em;
+  padding: 0.5em 2em;
 }
 
 /*
@@ -13,11 +12,11 @@
  * Make the menu have a very faint box-shadow.
  */
 .pure-menu {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .pure-menu-link {
-    padding: 0.5em 0.7em;
+  padding: 0.5em 0.7em;
 }
 
 /*
@@ -26,12 +25,12 @@
  */
 .pricing-tables,
 .information {
-    max-width: 980px;
-    margin: 0 auto;
+  max-width: 980px;
+  margin: 0 auto;
 }
 .pricing-tables {
-    margin-bottom: 3.125em;
-    text-align: center;
+  margin-bottom: 3.125em;
+  text-align: center;
 }
 
 /*
@@ -39,9 +38,9 @@
  * Every pricing table has the .pricing-table class
  */
 .pricing-table {
-    border: 1px solid #ddd;
-    margin: 0 0.5em 2em;
-    padding: 0 0 3em;
+  border: 1px solid #ddd;
+  margin: 0 0.5em 2em;
+  padding: 0 0 3em;
 }
 
 /*
@@ -49,11 +48,11 @@
  * Choose a different color based on the type of pricing table.
  */
 .pricing-table-free .pricing-table-header {
-    background: #519251;
+  background: #519251;
 }
 
 .pricing-table-biz .pricing-table-header {
-    background: #2c4985;
+  background: #2c4985;
 }
 
 /*
@@ -61,14 +60,14 @@
  * By default, a header is black/white, and has some styles for its <h2> name.
  */
 .pricing-table-header {
-    background: #111;
-    color: #fff;
+  background: #111;
+  color: #fff;
 }
 .pricing-table-header h2 {
-    margin: 0;
-    padding-top: 2em;
-    font-size: 1em;
-    font-weight: normal;
+  margin: 0;
+  padding-top: 2em;
+  font-size: 1em;
+  font-weight: normal;
 }
 
 /*
@@ -77,12 +76,11 @@
  * This inherits from Pure Button.
  */
 .button-choose {
-    border: 1px solid #ccc;
-    background: #fff;
-    color: #333;
-    border-radius: 2em;
-    font-weight: bold;
-    position: relative;
-    bottom: -1.5em;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  border-radius: 2em;
+  font-weight: bold;
+  position: relative;
+  bottom: -1.5em;
 }
-
