@@ -37,13 +37,27 @@
       </style>
 
 <div class="pure-menu pure-menu-scrollable custom-restricted">
-        {{> order_items order }}
+
+ <form class="new-post-form">
+{{#if posts.length}}
+<section>
+  <h2>Orders</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> order_items post}}
+      <a href="/dashboard/{{customer.id}}" class="edit-link">Checkout</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
             </div>    
 
                 <button class="button-choose pure-button">Choose</button>
             </div>
         </div>
     </div> <!-- end of tables -->
-
+</form>
 
 <script src='/javascript/customer.js'></script>
