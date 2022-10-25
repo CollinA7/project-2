@@ -1,4 +1,27 @@
 
+body{
+    background-image: url('/assets/backround_image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Login Form*/
+.loginid{
+    justify-content: center;
+    padding-top: 16.5%;
+    padding-left: 30%;
+}
+
+.button-success {
+    background: rgb(28, 184, 65);
+    /* this is a green */
+}
+
+.pure-controls{
+    
+}
+
+
 /* order.handlebar page  */
 * -- Layout Styles -- */ .l-content {
     margin: 0 auto;
