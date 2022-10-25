@@ -1,4 +1,3 @@
-// eslint-disable-next-line new-cap
 const router = require('express').Router();
 const { User, Customer, Order } = require('../../models');
 
@@ -89,7 +88,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // eslint-disable-next-line max-len
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
       req.session.loggedIn = true;
