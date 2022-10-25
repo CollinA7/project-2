@@ -29,6 +29,10 @@ router.get('/login', (req,res) => {
 
 router.get('/dashboard', (req, res) => {
   res.render('dashboard')
-})
+});
+
+router.get('/lobby', (req, res) => {
+  res.render('lobby')
+});
 
 module.exports = router;
