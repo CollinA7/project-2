@@ -29,21 +29,39 @@
                 <style>
     /* Customization to limit height of the menu */
     .custom-restricted {
-        height: 160px;
-        width: 150px;
+        height: 300px;
+        width: 350px;
         border: 1px solid gray;
         border-radius: 4px;
     }
       </style>
 
 <div class="pure-menu pure-menu-scrollable custom-restricted">
+<<<<<<< HEAD
         {{> order_items}}
+=======
+
+ <form class="new-post-form">
+{{#if posts.length}}
+<section>
+  <h2>Orders</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> order_items post}}
+      <a href="/dashboard/{{customer.id}}" class="edit-link">Checkout</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+>>>>>>> order
             </div>    
 
                 <button class="button-choose pure-button">Choose</button>
             </div>
         </div>
     </div> <!-- end of tables -->
-
+</form>
 
 <script src='/javascript/customer.js'></script>
