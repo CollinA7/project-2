@@ -16,13 +16,17 @@ router.get('/', withAuth, (req, res) => {
                     attributes: ['username'],
                 },
             },
+            {
+                model: User,
+                attributes: ['username'],
+            },
         ],
     })
         .then((dbCustomerData) => {
             const posts = dbCustomerData.map((post) =>
                 post.get({ plain: true })
             )
-            res.render('dashboard', { posts, loggedIn: true })
+            res.render('dashboard', { posts })
         })
         .catch((err) => {
             console.log(err)
