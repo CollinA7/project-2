@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', /* withAuth, */ (req, res) => {
     //create a order on a post//
     Order.create({
         name: req.body.name,
@@ -25,7 +25,7 @@ router.post('/', withAuth, (req, res) => {
         })
 })
 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', /* withAuth, */ (req, res) => {
   //delete a order from a post
   Order.destroy({
     where: {

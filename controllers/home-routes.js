@@ -4,7 +4,7 @@ const { User, Customer, Order } = require('../models');
 const withAuth = require('../utils/helpers');
 
 // get all customer for order handlebar
-router.get('/', withAuth, (req, res) => {
+router.get('/orders', /* withAuth */ (req, res) => {
   Customer.findAll({
     attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
     include: [
@@ -24,7 +24,9 @@ router.get('/', withAuth, (req, res) => {
   })
     .then((dbCustomerData) => {
       const posts = dbCustomerData.map((post) => post.get({ plain: true }));
-      res.render('homepage', { posts });
+      res.render('dashboard', { 
+        posts,
+        loggedIn: req.session.loggedIn, });
     })
     .catch((err) => {
       console.log(err);
@@ -83,15 +85,15 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/dashboard', (req, res) => {
-  try {
-    res.render('dashboard', {
-      loggedIn: req.session.loggedIn,
-    });
-  } catch {
-    console.log(err);
-    req.status(404).json(err);
-  }
-});
+// router.get('/dashboard', (req, res) => {
+//   try {
+//     res.render('dashboard', {
+//       loggedIn: req.session.loggedIn,
+//     });
+//   } catch {
+//     console.log(err);
+//     req.status(404).json(err);
+//   }
+// });
 
 module.exports = router;
