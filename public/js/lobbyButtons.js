@@ -1,15 +1,17 @@
-
 const createBtn = document.getElementById('createBtn');
-
-createBtn.addEventListener('click', function(event) {
-  console.log('button works!');
-  
-});
-
-// get a reference to the element
 const reviewBtn = document.getElementById('reviewBtn');
 
-reviewBtn.addEventListener('click', function(event) {
-  console.log('button also works!');
+// Create A New Order Button Function
+  function redirectCreate() {
+    console.log('button works!');
+    location.href = '#'
+  };
+
+// Review Order Button Function
+  function redirectReview(){
+    console.log(' this button also works!');
+    location.href = '#'
+  }
   
-});
+  createBtn.addEventListener('click', redirectCreate);
+  reviewBtn.addEventListener('click', redirectReview);
