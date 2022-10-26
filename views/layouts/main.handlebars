@@ -1,28 +1,27 @@
 <html lang='en'>
-    <head>
-        <meta charset='UTF-8' />
-        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <link
-            rel='stylesheet'
-            href='https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/pure-min.css'
-            integrity='sha384-7UE2/aLxcikvluV1XGghN2k6i+LoAwMjrZb4oVT9gGPPcLd2sjqAtgIinHb11RJz'
-            crossorigin='anonymous'
-        />
-        <link
-            rel='stylesheet'
-            href='https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/grids-responsive-min.css'
-        />
-        <link rel='stylesheet' href='../../public/css/style.css' />
-        <title>Niche</title>
-    </head>
-    <body>
-        <div class='header'>
-            <div
-                class='home-menu pure-menu pure-menu-horizontal pure-menu-fixed'
-            >
-                <a class='pure-menu-heading' href='/'>Niche</a>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/pure-min.css'
+      integrity='sha384-7UE2/aLxcikvluV1XGghN2k6i+LoAwMjrZb4oVT9gGPPcLd2sjqAtgIinHb11RJz'
+      crossorigin='anonymous'
+    />
+    <link
+      rel='stylesheet'
+      href='https://cdn.jsdelivr.net/npm/purecss@2.2.0/build/grids-responsive-min.css'
+    />
+    <link rel='stylesheet' href='../../public/css/style.css' />
+    <title>Niche</title>
+  </head>
+  <body>
+    <div class='header'>
+      <div class='home-menu pure-menu pure-menu-horizontal pure-menu-fixed'>
+        <a class='pure-menu-heading' href='/'>Niche</a>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         <ul class="pure-menu-list">
             <li class="pure-menu-item pure-menu-selected"><a href="/" class="pure-menu-link">Home</a></li>
@@ -32,8 +31,32 @@
             {{else}}
             <li class="pure-menu-item"><a href="/login" class="pure-menu-link">Login</a></li>
             {{/if}}
+=======
+        <ul class='pure-menu-list'>
+          <li class='pure-menu-item pure-menu-selected'><a
+              href='/'
+              class='pure-menu-link'
+            >Home</a></li>
+          {{#if loggedIn}}
+            <li class='pure-menu-item pure-item-link'><a
+                href='/dashboard'
+                class='pure-menu-link'
+              >Orders</a></li>
+            <li class='pure-menu-item'><button
+                class='pure-menu-link'
+                id='logout'
+              >Logout</button></li>
+          {{else}}
+            <li class='pure-menu-item'><a
+                href='/login'
+                class='pure-menu-link'
+              >Login</a></li>
+          {{/if}}
+>>>>>>> 363578d0af2fb687d52dee71fa8fe5111535dd06
         </ul>
+      </div>
     </div>
+<<<<<<< HEAD
 </div>
 =======
                 <ul class='pure-menu-list'>
@@ -61,10 +84,16 @@
             {{{body}}}
         </main>
         <footer>
+=======
+    <main>
+      {{{body}}}
+    </main>
+    <footer>
+>>>>>>> 363578d0af2fb687d52dee71fa8fe5111535dd06
 
-        </footer>
+    </footer>
     {{#if loggedIn}}
-    <script src="./js/logout.js"></script>
+      <script src='./js/logout.js'></script>
     {{/if}}
-    </body>
+  </body>
 </html>
