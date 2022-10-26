@@ -1,5 +1,5 @@
 async function customerFormHandler(event) {
-    event.preventDefault()
+  event.preventDefault();
 
     const customer_name = document
         .querySelector('input[value="customer_name"]')
@@ -29,6 +29,7 @@ async function customerFormHandler(event) {
         alert(response.statusText)
     }
 }
+
 
 document
     .querySelector('.pure-form pure-form-stacked')
