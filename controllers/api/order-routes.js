@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Order } = require('../../models');
-const withAuth = require('../../utils/helpers');
 
 router.get('/', (req, res) => {
   Order.findAll()
@@ -11,7 +10,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   //create a order on a post//
   Order.create({
     order_id: req.body.order_id,
@@ -25,7 +24,7 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
   //delete a order from a post
   Order.destroy({
     where: {

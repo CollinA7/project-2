@@ -4,10 +4,9 @@ const router = require('express').Router();
 const sequelize = require('sequelize');
 // eslint-disable-next-line object-curly-spacing
 const { User, Customer, Order } = require('../models');
-const withAuth = require('../utils/auth');
 
 // get all customer for order handlebar
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
   Customer.findAll({
     attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
     include: [

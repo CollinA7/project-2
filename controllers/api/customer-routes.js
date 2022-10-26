@@ -1,8 +1,7 @@
 const router = require('express').Router();
 const { Customer, Order, User } = require('../../models');
-const withAuth = require('../../utils/helpers');
 
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
   Customer.findAll({
     attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
     include: [
@@ -57,7 +56,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
   //create a customer on a post
   Customer.create({
     customer_name: req.body.customer_name,
@@ -71,7 +70,7 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', (req, res) => {
   //delete a customer from a post
   Customer.destroy({
     where: {
