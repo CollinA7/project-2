@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     //create a order on a post//
     Order.create({
-        order_id: req.body.order_id,
         name: req.body.name,
         user_id: req.session.user_id,
+        customer_id: req.body.customer_id,
     })
         .then((dbOrderData) => res.json(dbOrderData))
         .catch((err) => {
