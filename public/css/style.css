@@ -1,5 +1,12 @@
+body{
+  background-image: url(/assets/backround_image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 /* order.handlebar page  */
-* -- Layout Styles -- */ .l-content {
+/* -- Layout Styles -- */ .l-content {
   margin: 0 auto;
 }
 
@@ -13,6 +20,7 @@
  */
 .pure-menu {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: salmon;
 }
 
 .pure-menu-link {
@@ -83,4 +91,82 @@
   font-weight: bold;
   position: relative;
   bottom: -1.5em;
+}
+
+
+.login-form{
+  margin-top: 14%;
+  margin-left: 36%;
+}
+
+.login-form h3 {
+  font-size: 35px;
+  margin-left: 20%;
+  color: #cbdbcb;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.signup-form {
+  margin-top: 0px;
+  margin-left: 20%;
+  
+}
+
+.signup-form h3 {
+  margin-left: 19%;
+  font-size: 35px;
+  color: #cbdbcb;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.login-form span {
+  color:rgb(187, 61, 30);
+  font-size: 102.5%;
+}
+
+.signup-form span {
+  color:rgb(187, 61, 30);
+  font-size: 102.5%;
+}
+
+.login-button { 
+  margin-left: 5%;
+  
+}
+
+.button-success {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65);
+  /* this is a green */
+}
+
+/* .button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(66, 184, 221);
+  /* this is a light blue 
+} */
+
+.signup-button { 
+  margin-left: 4.5%;
+}
+
+
+/* style for order/dashboard page */
+
+.phone-input{
+  margin-left: 19%;
+}
+
+.Take-Order{
+  padding: 20px;
+  margin-left: 20%;
+  margin-top: 5%;
+}
+
+.review-orders{
+  margin-left: 60%;
 }
