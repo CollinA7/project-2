@@ -3,27 +3,6 @@ const { Customer, Order, User } = require('../../models');
 const withAuth = require('../../utils/helpers');
 
 router.get('/', withAuth, (req, res) => {
-<<<<<<< HEAD
-    Customer.findAll({
-        attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
-        include: [
-            {
-                model: Order,
-                attributes: ['order_id', 'name'],
-            },
-            {
-                model: User,
-                attributes: ['username'],
-            },
-        ],
-    })
-        .then((dbCustomerData) => res.json(dbCustomerData))
-        .catch((err) => {
-            console.log(err)
-            res.status(500).json(err)
-        })
-})
-=======
   Customer.findAll({
     attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
     include: [
@@ -47,63 +26,47 @@ router.get('/', withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
->>>>>>> 363578d0af2fb687d52dee71fa8fe5111535dd06
 
 router.get('/:id', (req, res) => {
-    Customer.findOne({
-        where: {
-            id: req.params.id,
+  Customer.findOne({
+    where: {
+      id: req.params.id,
+    },
+    attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
+    include: [
+      {
+        model: Order,
+        attributes: ['order_id', 'name', 'customer_id'],
+        include: {
+          model: User,
+          attributes: ['username'],
         },
-        attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
-        include: [
-            {
-                model: Order,
-                attributes: ['order_id', 'name', 'customer_id'],
-                include: {
-                    model: User,
-                    attributes: ['username'],
-                },
-            },
-            {
-                model: User,
-                attributes: ['username'],
-            },
-        ],
+      },
+      {
+        model: User,
+        attributes: ['username'],
+      },
+    ],
+  })
+    .then((dbCustomerData) => {
+      if (!dbCustomerData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbCustomerData);
     })
-        .then((dbCustomerData) => {
-            if (!dbCustomerData) {
-                res.status(404).json({ message: 'No post found with this id' })
-                return
-            }
-            res.json(dbCustomerData)
-        })
-        .catch((err) => {
-            console.log(err)
-            res.status(500).json(err)
-        })
-})
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.post('/', withAuth, (req, res) => {
-<<<<<<< HEAD
-    //create a customer on a post
-    Customer.create({
-        customer_name: req.body.customer_name,
-        customer_phone: req.body.customer_phone,
-        user_id: req.session.user_id,
-    })
-        .then((dbCustomerData) => res.json(dbCustomerData))
-        .catch((err) => {
-            console.log(err)
-            res.status(400).json(err)
-        })
-})
-=======
   //create a customer on a post
   Customer.create({
     customer_name: req.body.customer_name,
-    order_id: req.body.order_id,
-    order_name: req.body.order_name,
     customer_phone: req.body.customer_phone,
+    user_id: req.session.user_id,
   })
     .then((dbCustomerData) => res.json(dbCustomerData))
     .catch((err) => {
@@ -111,7 +74,6 @@ router.post('/', withAuth, (req, res) => {
       res.status(400).json(err);
     });
 });
->>>>>>> 363578d0af2fb687d52dee71fa8fe5111535dd06
 
 router.delete('/:id', withAuth, (req, res) => {
   //delete a customer from a post

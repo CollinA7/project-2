@@ -5,35 +5,21 @@ const withAuth = require('../utils/helpers');
 
 // get all customer for order handlebar
 router.get('/', withAuth, (req, res) => {
-<<<<<<< HEAD
-    Customer.findAll({
-        attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
-        include: [
-            {
-                model: Order,
-                attributes: ['order_id', 'name', 'customer_id'],
-                include: {
-                    model: User,
-                    attributes: ['username'],
-                },
-            },
-=======
   Customer.findAll({
     attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
     include: [
       {
         model: Order,
-        attributes: ['order_id', 'name'],
+        attributes: ['order_id', 'name', 'customer_id'],
         include: {
           model: User,
           attributes: ['username'],
         },
       },
->>>>>>> 363578d0af2fb687d52dee71fa8fe5111535dd06
-            {
-                model: User,
-                attributes: ['username'],
-            },
+      {
+        model: User,
+        attributes: ['username'],
+      },
     ],
   })
     .then((dbCustomerData) => {
