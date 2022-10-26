@@ -1,69 +1,67 @@
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line new-cap
-const router = require('express').Router()
-const sequelize = require('sequelize')
-// eslint-disable-next-line object-curly-spacing
-const { User, Customer, Order } = require('../models')
-const withAuth = require('../utils/auth')
+const router = require('express').Router();
+const sequelize = require('sequelize');
+const { User, Customer, Order } = require('../models');
+const withAuth = require('../utils/helpers');
 
 // get all customer for order handlebar
 router.get('/', withAuth, (req, res) => {
-    Customer.findAll({
-        attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
-        include: [
-            {
-                model: Order,
-                attributes: ['order_id', 'name', 'customer_id'],
-                include: {
-                    model: User,
-                    attributes: ['username'],
-                },
-            },
-            {
-                model: User,
-                attributes: ['username'],
-            },
-        ],
+  Customer.findAll({
+    attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
+    include: [
+      {
+        model: Order,
+        attributes: ['order_id', 'name', 'customer_id'],
+        include: {
+          model: User,
+          attributes: ['username'],
+        },
+      },
+      {
+        model: User,
+        attributes: ['username'],
+      },
+    ],
+  })
+    .then((dbCustomerData) => {
+      const posts = dbCustomerData.map((post) => post.get({ plain: true }));
+      res.render('homepage', { posts });
     })
-        .then((dbCustomerData) => {
-            const posts = dbCustomerData.map((post) =>
-                post.get({ plain: true })
-            )
-            res.render('homepage', { posts })
-        })
-        .catch((err) => {
-            console.log(err)
-            res.status(500).json(err)
-        })
-})
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // get single post
-router.get('/customer/:id', (req, res) => {
+router
+  .get('/customer/:id', (req, res) => {
     Customer.findOne({
-        where: {
-            id: req.params.id,
+      where: {
+        id: req.params.id,
+      },
+      attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
+      include: [
+        {
+          model: Order,
+          attributes: ['order_id', 'name', 'customer_id'],
+          include: {
+            model: User,
+            attributes: ['username'],
+          },
         },
-        attributes: ['id', 'customer_name', 'customer_phone', 'created_at'],
-        include: [
-            {
-                model: Order,
-                attributes: ['order_id', 'name', 'customer_id'],
-                include: {
-                    model: User,
-                    attributes: ['username'],
-                },
-            },
-            {
-                model: User,
-                attributes: ['username'],
-            },
-        ],
-    })
-        .then((dbCustomerData) => {
-            if (!dbCustomerData) {
-                res.status(404).json({ message: 'No post found with this id' })
-                return
-            }
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+  })
+  // .then((dbCustomerData) => {
+  //   if (!dbCustomerData) {
+  //     res.status(404).json({ message: 'No post found with this id' });
+  //     return;
+  //   }
+  // });
 
 router.get('/', (req, res) => {
   try {
@@ -96,4 +94,4 @@ router.get('/dashboard', (req, res) => {
   }
 });
 
-module.exports = router
+module.exports = router;
