@@ -29,21 +29,21 @@
                             href='/'
                             class='pure-menu-link'
                         >Home</a></li>
-                    {{#if loggedIn}}
-                        <li class='pure-menu-item pure-item-link'><a
-                                href='/dashboard'
-                                class='pure-menu-link'
-                            >Orders</a></li>
-                        <li class='pure-menu-item'><button
-                                class='pure-menu-link'
-                                id='logout'
-                            >Logout</button></li>
-                    {{else}}
-                        <li class='pure-menu-item'><a
-                                href='/login'
-                                class='pure-menu-link'
-                            >Login</a></li>
-                    {{/if}}
+
+                    <li class='pure-menu-item pure-item-link'><a
+                            href='/dashboard'
+                            class='pure-menu-link'
+                        >Orders</a></li>
+                    <li class='pure-menu-item'><button
+                            class='pure-menu-link'
+                            id='logout'
+                        >Logout</button></li>
+
+                    <li class='pure-menu-item'><a
+                            href='/login'
+                            class='pure-menu-link'
+                        >Login</a></li>
+
                 </ul>
             </div>
         </div>
