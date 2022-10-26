@@ -84,15 +84,4 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/dashboard', (req, res) => {
-  try {
-    res.render('dashboard', {
-      loggedIn: req.session.loggedIn,
-    });
-  } catch {
-    console.log(err);
-    req.status(404).json(err);
-  }
-});
-
 module.exports = router;
