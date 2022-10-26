@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Order,
-        attributes: ['id', 'name'],
+        attributes: ['order_id', 'name'],
       },
     ],
   })
@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
 });
 
 // CREATE new user
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 
@@ -88,6 +88,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    // eslint-disable-next-line max-len
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
       req.session.loggedIn = true;

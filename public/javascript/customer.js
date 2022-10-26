@@ -1,4 +1,4 @@
-async function newFormHandler(event) {
+aasync function newFormHandler(event) {
     event.preventDefault()
 
     const customer_name = document.querySelector(
